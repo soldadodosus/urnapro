@@ -1,0 +1,20 @@
+{
+  "summary": "Validated live Expo mobile preview and core backend flows. Admin and collaborator login, dashboard projections, campaign persistence/restore, collaborator permissions, tab navigation, and client validation passed.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [{"flow": "API configuration", "issue": "src/api.ts reads EXPO_PUBLIC_BACKEND_URL/extra.backendUrl instead of the required EXPO_BACKEND_URL; current preview works only because EXPO_PUBLIC_BACKEND_URL is also present.", "affected_testIDs": []}],
+    "design_issues": [],
+    "react_native_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/test_campaign_review.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": ["Update frontend API base URL resolution to use EXPO_BACKEND_URL as the canonical environment key while preserving current preview behavior.", "Add testID attributes to all interactive and critical informational controls (login fields/button, tabs, scenario selectors, data fields/save, team invite/modal fields)."],
+  "critical_code_review_comments": ["All referenced source files are within manageable size and use React Native primitives/StyleSheet. Auth token validation and server-side admin authorization are present.", "JWT fallback secret is weak and produces an InsecureKeyLengthWarning; production should require a sufficiently long JWT_SECRET rather than defaulting."],
+  "updated_files": ["/app/backend/tests/test_campaign_review.py", "/app/test_reports/iteration_1.json"],
+  "success_rate": {"backend": "100% (2/2)" , "frontend": "100% (critical flows executed)"},
+  "seed_data_creation": "None; campaign was restored to its original values after persistence testing.",
+  "retest_needed": true,
+  "should_call_test_agent_after_fix": true,
+  "context_for_next_testing_agent": "Live preview tested at mobile viewport 375x667. Admin dashboard showed 10,480 real projection; collaborator could view/update screens but invite was hidden and API returned 403. Invalid empty target displayed the expected Portuguese validation message.",
+  "rca_of_issue": "Configuration compliance issue: frontend/src/api.ts constructs API_URL from Constants.expoConfig.extra.backendUrl or EXPO_PUBLIC_BACKEND_URL, while the deployment contract specifies EXPO_BACKEND_URL. No failure occurred in this preview because EXPO_PUBLIC_BACKEND_URL is currently defined."
+}

@@ -1,0 +1,135 @@
+{
+  "app_name": "UrnaPro - Campanha Eleitoral",
+  "personality": "1 iOS-Native Clean",
+  "personality_one_liner": "Command center precision meets civic trust with clean typography, warm stone surfaces, and confident data hierarchies.",
+  "color": {
+    "surface": "#F8F7F4",
+    "onSurface": "#1C1C1E",
+    "surfaceSecondary": "#FFFFFF",
+    "onSurfaceSecondary": "#1C1C1E",
+    "surfaceTertiary": "#EFECE6",
+    "onSurfaceTertiary": "#3A3A3C",
+    "surfaceInverse": "#1C1C1E",
+    "onSurfaceInverse": "#F8F7F4",
+    "brand": "#1F4E3D",
+    "brandPrimary": "#1F4E3D",
+    "onBrandPrimary": "#FFFFFF",
+    "brandSecondary": "#3D7A62",
+    "onBrandSecondary": "#FFFFFF",
+    "brandTertiary": "#E5EFEA",
+    "onBrandTertiary": "#1F4E3D",
+    "success": "#2D6A4F",
+    "onSuccess": "#FFFFFF",
+    "warning": "#D97706",
+    "onWarning": "#FFFFFF",
+    "error": "#B91C1C",
+    "onError": "#FFFFFF",
+    "info": "#2563EB",
+    "onInfo": "#FFFFFF",
+    "border": "#E5E5EA",
+    "borderStrong": "#C7C7CC",
+    "divider": "#EFECE6"
+  },
+  "typography": {
+    "displayFontFamily": "Plus Jakarta Sans",
+    "textFontFamily": "DM Sans",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Generous vertical padding, consistent margins, and clean touch targets >= 44pt for field volunteers.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": "1",
+  "navigation": "bottom_tabs",
+  "icon_set": "Ionicons",
+  "glassmorphism": {
+    "enabled": true,
+    "do's": [
+      "Use frosted glass on sticky headers and floating bottom sheets",
+      "Apply translucent surface tint over cards and chart overlays"
+    ],
+    "dont's": [
+      "Never blur body text or form inputs",
+      "Do not use heavy dark blurs that obscure underlying navigation"
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Login",
+      "purpose": "Secure authentication for campaign administrators and field collaborators with role-based entry.",
+      "states": {
+        "loading": "Centered botanical spinner with subtle brand pulse",
+        "empty": "Clean credential entry form with clear validation cues",
+        "error": "Inline banner with readable error message and retry action"
+      },
+      "layout": "Centered clean authentication card with role selector toggle (Administrador / Colaborador), credential inputs, and instant biometric or email login."
+    },
+    {
+      "name": "CampaignHome",
+      "purpose": "Central command dashboard displaying live vote totals, progress towards target, and scenario probability modeling.",
+      "states": {
+        "loading": "Full skeleton card placeholders for metric widgets and chart blocks",
+        "empty": "Prompt to create a campaign and set initial voter targets",
+        "error": "Error banner with refresh button and offline cache notice"
+      },
+      "layout": "Top sticky campaign selector header, primary progress ring card with scenario toggles (Ruim / Real / Otimista), quick metric cards grid, and recent field update feed."
+    },
+    {
+      "name": "CampaignForm",
+      "purpose": "General campaign management form allowing admins and collaborators to update targets, registered votes, and estimate projections.",
+      "states": {
+        "loading": "Input skeleton rows with shimmering surface dividers",
+        "empty": "Pre-populated campaign parameters ready for editing",
+        "error": "Validation warning highlights on out-of-range numeric fields"
+      },
+      "layout": "Scrollable form with sticky bottom action bar, grouped numeric stepper inputs for Meta de Votos, Votos Contabilizados, and Votos Estimados, plus scenario formula modifiers."
+    },
+    {
+      "name": "TeamPermissions",
+      "purpose": "Manage campaign team members, assigning Admin and Colaborador roles with distinct access rights.",
+      "states": {
+        "loading": "List skeleton rows with circular avatar placeholders",
+        "empty": "Empty team state with prominent invite collaborator CTA",
+        "error": "Permission sync error message with retry trigger"
+      },
+      "layout": "List of team collaborators with role badges, permission toggle sheets, and an invite collaborator modal."
+    }
+  ],
+  "images": {
+    "hero_banner": {
+      "url": "https://images.unsplash.com/photo-1767449280971-46e438b1ce4a?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Political campaign data and analytics dashboard preview"
+    }
+  },
+  "instructions_to_main_agent": "Implement a high-performance React Native app in Expo for political campaign vote tracking and probability projection (Ruim, Real, Otimista). Ensure role-based access for Admin and Colaborators, interactive scenario calculations, and a gorgeous dashboard with charts and progress rings. Strictly adhere to iOS-Native Clean personality, warm botanical tones (forest green & cream), touch targets >= 44pt, and zero banned colors."
+}
